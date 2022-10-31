@@ -10,9 +10,10 @@ builder.Services.AddDbContext<ProductDbContext>(options =>
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
+builder.Services.AddHttpsRedirection(opts => opts.HttpsPort = 44350);
 
 var app = builder.Build();
-
+app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 app.UseEndpoints(endpoints =>
