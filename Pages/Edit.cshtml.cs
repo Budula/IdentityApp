@@ -1,9 +1,12 @@
 using IdentityApp.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Data;
 
 namespace IdentityApp.Pages
 {
+    [Authorize(Roles = "Admin")]
     public class EditModel : PageModel
     {
         public ProductDbContext DbContext{ get; set; }
